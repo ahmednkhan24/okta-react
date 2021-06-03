@@ -30,7 +30,7 @@ const App = () => {
       restoreOriginalUri={restoreOriginalUri}
     >
       <Switch>
-        {/* <Route exact path="/" render={() => <Redirect to="/login" />} /> */}
+        <Route exact path="/" render={() => <Redirect to="/login" />} />
         <Route exact path="/login" component={OktaSignInWidget} />
         <Route exact path="/implicit/callback" component={LoginCallback} />
         <SecureRoute exact path="/home" component={Home} />

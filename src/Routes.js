@@ -5,6 +5,7 @@ import OktaSignInWidget from "./components/OktaSignInWidget";
 import Content from "./components/Content";
 import Home from "./components/Home";
 import { __RouterContext } from "react-router";
+import { useOktaStorageTokens } from "./hooks/useOktaStorageTokens";
 
 const isPublicRoute = (pathname) => ["/login"].includes(pathname);
 
@@ -12,6 +13,9 @@ const Routes = () => {
   const {
     authState: { isPending, isAuthenticated },
   } = useOktaAuth();
+
+  const oktaTokens = useOktaStorageTokens();
+  console.log("tokens: ", oktaTokens);
 
   const { history } = useContext(__RouterContext);
 

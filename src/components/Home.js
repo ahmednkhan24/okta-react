@@ -1,18 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useOktaAuth } from "@okta/okta-react";
 
-const Home = () => (
-  <div>
-    <h1>home page</h1>
-    <br />
-    <Link to="/content">Click to go to Content page</Link>
-    <br />
-    <br />
-    <br />
-    <button onClick={() => window.location.reload()}>
-      Click me to refresh entire application
-    </button>
-  </div>
-);
+const Home = () => {
+  const { oktaAuth } = useOktaAuth();
+
+  return (
+    <div>
+      <h1>home page</h1>
+      <br />
+      <Link to="/content">Click to go to Content page</Link>
+      <br />
+      <br />
+      <br />
+      <button onClick={() => window.location.reload()}>
+        Refresh entire application to test persistence
+      </button>
+      <br />
+      <br />
+      <br />
+      <button onClick={() => oktaAuth.signOut()}>Sign Out</button>
+    </div>
+  );
+};
 
 export default Home;

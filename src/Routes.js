@@ -1,27 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { LoginCallback, SecureRoute, useOktaAuth } from "@okta/okta-react";
 import OktaSignInWidget from "./components/OktaSignInWidget";
 import Content from "./components/Content";
 import Home from "./components/Home";
-import { __RouterContext } from "react-router";
-import { useOktaStorageTokens } from "./hooks/useOktaStorageTokens";
-
-const isPublicRoute = (pathname) => ["/login"].includes(pathname);
 
 const Routes = () => {
   const {
     authState: { isPending, isAuthenticated },
   } = useOktaAuth();
-
-  const oktaTokens = useOktaStorageTokens();
-  console.log("tokens: ", oktaTokens);
-
-  const { history } = useContext(__RouterContext);
-
-  if (!isAuthenticated && !isPublicRoute(history.location.pathname)) {
-    return <Redirect to="/login" />;
-  }
 
   return (
     <Switch>

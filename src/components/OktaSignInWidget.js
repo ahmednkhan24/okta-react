@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useMemo } from "react";
+import { Redirect } from "react-router";
 import { useOktaAuth } from "@okta/okta-react";
 import OktaSignIn from "@okta/okta-signin-widget";
 import "@okta/okta-signin-widget/dist/css/okta-sign-in.min.css";
@@ -32,6 +33,6 @@ const OktaSignInWidget = () => {
     return () => widget.remove();
   }, [oktaAuth, isAuthenticated, widget]);
 
-  return <div ref={widgetRef} />;
+  return isAuthenticated ? <Redirect to="/home" /> : <div ref={widgetRef} />;
 };
 export default OktaSignInWidget;

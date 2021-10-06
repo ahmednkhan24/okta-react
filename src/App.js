@@ -9,6 +9,7 @@ const App = () => {
   const history = useHistory();
 
   const oktaAuth = useMemo(() => new OktaAuth(oktaAuthConfig), []);
+  // oktaAuth.start();
 
   const onAuthRequired = () => history.push("/login");
 

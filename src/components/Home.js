@@ -19,7 +19,14 @@ const Home = () => {
       <br />
       <br />
       <br />
-      <button onClick={() => oktaAuth.signOut()}>Sign Out</button>
+      <button
+        onClick={() => {
+          oktaAuth.signOut();
+          // oktaAuth.stop();
+        }}
+      >
+        Sign Out
+      </button>
     </div>
   );
 };

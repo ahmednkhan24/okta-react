@@ -1,9 +1,9 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { LoginCallback, SecureRoute, useOktaAuth } from "@okta/okta-react";
-import OktaSignInWidget from "./components/OktaSignInWidget";
-import Content from "./components/Content";
-import Home from "./components/Home";
+import OktaSignInWidget from "./OktaSignInWidget";
+import Content from "./Content";
+import Home from "./Home";
 
 const Routes = () => {
   const {

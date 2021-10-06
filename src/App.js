@@ -2,8 +2,8 @@ import React, { useMemo } from "react";
 import { useHistory } from "react-router";
 import { Security } from "@okta/okta-react";
 import { OktaAuth } from "@okta/okta-auth-js";
-import { oktaAuthConfig } from "./config/okta";
-import Routes from "./Routes";
+import { oktaAuthConfig } from "./config";
+import Routes from "./components/Routes";
 
 const App = () => {
   const history = useHistory();

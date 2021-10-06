@@ -3,7 +3,7 @@ import { Redirect } from "react-router";
 import { useOktaAuth } from "@okta/okta-react";
 import OktaSignIn from "@okta/okta-signin-widget";
 import "@okta/okta-signin-widget/dist/css/okta-sign-in.min.css";
-import { widgetConfig } from "../config/okta";
+import { widgetConfig } from "../config";
 
 const OktaSignInWidget = () => {
   const {

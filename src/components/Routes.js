@@ -6,9 +6,8 @@ import Content from "./Content";
 import Home from "./Home";
 
 const Routes = () => {
-  const {
-    authState: { isPending, isAuthenticated },
-  } = useOktaAuth();
+  const { authState } = useOktaAuth();
+  const isAuthenticated = authState ? authState.isAuthenticated : false;
 
   return (
     <Switch>
@@ -18,13 +17,7 @@ const Routes = () => {
       <SecureRoute exact path="/content" component={Content} />
       <Route
         render={() =>
-          isAuthenticated ? (
-            <Redirect to="/home" />
-          ) : isPending ? (
-            <h1>loading...</h1>
-          ) : (
-            <Redirect to="/login" />
-          )
+          isAuthenticated ? <Redirect to="/home" /> : <Redirect to="/login" />
         }
       />
     </Switch>

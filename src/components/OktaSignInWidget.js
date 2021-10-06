@@ -6,10 +6,8 @@ import "@okta/okta-signin-widget/dist/css/okta-sign-in.min.css";
 import { widgetConfig } from "../config";
 
 const OktaSignInWidget = () => {
-  const {
-    oktaAuth,
-    authState: { isAuthenticated },
-  } = useOktaAuth();
+  const { oktaAuth, authState } = useOktaAuth();
+  const isAuthenticated = authState ? authState.isAuthenticated : false;
 
   const widget = useMemo(() => new OktaSignIn(widgetConfig), []);
   const widgetRef = useRef(widget);
